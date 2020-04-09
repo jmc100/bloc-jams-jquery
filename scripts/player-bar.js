@@ -28,4 +28,35 @@
     player.playPause(prevSong);
   });
 
+  //execute the time control input
+  $('#time-control input').on('input', function (event) {
+    player.skipTo(event.target.value);
+  });
+
+  //execute the volume control input
+  $('#volume-control input').on('input', function (event) {
+    player.setVolume(event.target.value);
+  });
+
+
+  //time control input: set the time of the track to be played
+  setInterval( () => {
+    if (player.playState !== 'playing') { return; }
+    const currentTime = player.getTime();
+    const duration = player.getDuration();
+    const percent = (currentTime / duration) * 100;
+    $('#time-control .current-time').text( currentTime );
+    $('#time-control input').val(percent);
+  }, 1000);
+
+  //volume control input: set the volume of the player
+  setVolume( () => {
+    if (player.playState !== 'playing') { return; }
+    const currentVolume = player.setVolume();
+    const percent = (currentVolume / 80) * 100;
+    $('#volume-control .current-volume').text( currentVolume );
+    $('#volume-control input').val(percent);
+  }, 1000);
+
+
 }
