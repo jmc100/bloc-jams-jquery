@@ -1,2 +1,2 @@
 # bloc-jams-jquery
-A starter project for Bloc's jQuery-driven music player app
+Bloc Jam is a music player app that is built primarily using jQuery
