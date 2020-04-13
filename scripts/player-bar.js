@@ -38,7 +38,6 @@
     player.setVolume(event.target.value);
   });
 
-
   //time control input: set the time of the track to be played
   setInterval( () => {
     if (player.playState !== 'playing') { return; }
@@ -48,15 +47,4 @@
     $('#time-control .current-time').text( currentTime );
     $('#time-control input').val(percent);
   }, 1000);
-
-  //volume control input: set the volume of the player
-  setVolume( () => {
-    if (player.playState !== 'playing') { return; }
-    const currentVolume = player.setVolume();
-    const percent = (currentVolume / 80) * 100;
-    $('#volume-control .current-volume').text( currentVolume );
-    $('#volume-control input').val(percent);
-  }, 1000);
-
-
 }
