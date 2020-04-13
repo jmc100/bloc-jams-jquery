@@ -1,6 +1,6 @@
 {
   $('button#play-pause').on('click', function() {
-    player.playPause();
+    helper.playPauseAndUpdate();
     $(this).attr('playState', player.playState);
   });
 
@@ -13,7 +13,7 @@
     const nextSong = album.songs[nextSongIndex];
     if (nextSongIndex >= album.songs.length) { return; }
 
-    player.playPause(nextSong);
+    helper.playPauseAndUpdate(nextSong);
   });
 
   // previous button
@@ -25,7 +25,7 @@
     const prevSong = album.songs[prevSongIndex];
     if (prevSongIndex < 0) { return; }
 
-    player.playPause(prevSong);
+    helper.playPauseAndUpdate(prevSong);
   });
 
   //execute the time control input
