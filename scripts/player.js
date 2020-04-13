@@ -6,13 +6,11 @@ class Player {
     this.soundObject = new buzz.sound(this.currentlyPlaying.soundFileUrl);
   }
 
-  // prettyTime(timeInSeconds){
-  //   player.prettyTime(){
-  //     currentTime = Math.floor(timeInSeconds);
-  //     totalTime = Math.floor(currentTime/ 60);
-  //     return totalTime + ":" + currentTime;
-  //   }
-  // }
+prettyTime(song){
+    const minutes= Math.floor(song / 60);
+    const seconds = Number(song%60/100).toFixed(2).substring(2);
+    return minutes+':'+seconds;
+  }
 
   getDuration() {
     return this.soundObject.getDuration();
