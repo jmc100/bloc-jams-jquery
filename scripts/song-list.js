@@ -10,7 +10,7 @@
           </button>
         </td>
         <td>${song.title}</td>
-        <td>${player.prettyTime(song.duration)}</td>
+        <td>${song.duration}</td>
       </tr>
       `);
 
@@ -21,4 +21,10 @@
 
       $('#song-list').append(song.element);
     });
+  }
+
+  prettyTime(song){
+    const minutes= Math.floor(song / 60);
+    const seconds = Number(song%60/100).toFixed(2).substring(2);
+    return minutes+':'+seconds;
   }
