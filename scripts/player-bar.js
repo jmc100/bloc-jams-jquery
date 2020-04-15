@@ -41,7 +41,7 @@
   //time control input: set the time of the track to be played
   setInterval( () => {
     if (player.playState !== 'playing') { return; }
-    const currentTime = player.getTime();
+    const currentTime = player.prettyTime(player.getTime());
     const duration = player.getDuration();
     const percent = (currentTime / duration) * 100;
     $('#time-control .current-time').text( currentTime );
